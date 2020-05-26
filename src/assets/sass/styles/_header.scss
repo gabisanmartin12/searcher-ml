@@ -1,0 +1,14 @@
+header {
+  height: 3rem;
+  background-color: $main-color;
+
+  & .main-container {
+    height: 100%;
+    display: flex;
+    align-items: center;
+  }
+
+  & .searcher-container {
+    flex-grow: 1;
+  }
+}

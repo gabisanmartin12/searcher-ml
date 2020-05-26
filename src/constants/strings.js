@@ -1,0 +1,10 @@
+export const BUSCANDO_PRODUCTO = "Buscando producto";
+export const BUSCANDO_PRODUCTOS = "Buscando productos";
+export const COMPRAR = "Comprar";
+export const FELICITACIONES = "Felicitaciones";
+export const EL_PRODUCTO_YA_ES_TUYO = "El producto ya es tuyo";
+export const DESCRIPCION_DEL_PRODUCTO = "Descripcion del producto";
+export const NO_SE_ENCONTRO_EL_PRODUCTO = "No se encontro el producto";
+export const NO_SE_ENCONTRARON_PRODUCTOS = "No se encontraron productos";
+export const NUNCA_DEJES_DE_BUSCAR = "Nunca dejes de buscar";
+export const VENDIDOS = "Vendidos";

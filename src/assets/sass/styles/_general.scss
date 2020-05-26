@@ -1,0 +1,43 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  height: 100%;
+  background-color: $background-color;
+  font-family: "Proxima Nova", -apple-system, "Helvetica Neue", Helvetica,
+    Roboto, Arial, sans-serif, sans-serif;
+}
+
+.main-container {
+  height: auto;
+  max-width: 73rem;
+  box-sizing: border-box;
+  padding: 0 1rem;
+  margin: auto;
+}
+
+input {
+  font: inherit;
+  font-size: 1.125rem;
+  box-sizing: border-box;
+  padding: 0 1rem;
+  border: none;
+
+  &::placeholder {
+    color: #999;
+  }
+}
+
+button {
+  border: none;
+
+  &.primary {
+    background-color: $primary-color;
+  }
+}
+
+.rounded {
+  border-radius: 0.25rem;
+}
