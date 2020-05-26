@@ -21,7 +21,6 @@ const ProductsView = () => {
   useEffect(() => {
     const fetchProducts = async (query) => {
       const data = await itemService.getAll({ q: query });
-      console.log(data);
       setProducts(data.items);
       setCategories(data.categories);
     };
