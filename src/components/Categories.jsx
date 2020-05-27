@@ -1,3 +1,4 @@
+import PropTypes from "prop-types";
 import React from "react";
 
 const Categories = (props) => {
@@ -12,6 +13,10 @@ const Categories = (props) => {
       <span className="last">{last}</span>
     </div>
   );
+};
+
+Categories.propTypes = {
+  categories: PropTypes.arrayOf(PropTypes.string).isRequired,
 };
 
 export default Categories;

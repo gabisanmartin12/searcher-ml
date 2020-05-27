@@ -1,9 +1,9 @@
+import PropTypes from "prop-types";
 import React from "react";
 import { useHistory } from "react-router-dom";
 import FreeShippingIconUrl from "../assets/img/icons/free_shipping.png";
 import { NO_SE_ENCONTRARON_PRODUCTOS } from "../constants/strings";
 import Container from "./Container";
-import Loader from "./Loader";
 
 const ProductList = ({ products }) => {
   const history = useHistory();
@@ -13,8 +13,9 @@ const ProductList = ({ products }) => {
   return (
     <Container>
       {!areThereProducts ? (
-        // In this case, I will use the loader to show empty results messages
-        <Loader message={NO_SE_ENCONTRARON_PRODUCTOS} />
+        <div className="empty-product-list" style={{ marginTop: "1rem" }}>
+          {NO_SE_ENCONTRARON_PRODUCTOS}
+        </div>
       ) : (
         <div className="product-list rounded">
           {products.map((product) => (
@@ -30,14 +31,28 @@ const ProductList = ({ products }) => {
   );
 };
 
-const ProductListItem = ({ title, picture, price, free_shipping, onClick }) => (
+ProductList.propTypes = {
+  products: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.string.isRequired,
+    })
+  ).isRequired,
+};
+
+export const ProductListItem = ({
+  title,
+  picture,
+  price,
+  free_shipping,
+  onClick,
+}) => (
   <div className="product-list-item" onClick={onClick}>
     <img className="product-image rounded" src={picture} alt="Product" />
     <div className="product-info">
       <div className="product-info-secondary">
         <div className="price-info">
-          <span className="price-symbol">{price.currency}</span>
-          <span className="price-amount">{price.amount}</span>
+          <span className="price-symbol">{price && price.currency}</span>
+          <span className="price-amount">{price && price.amount}</span>
           {free_shipping && (
             <img src={FreeShippingIconUrl} alt="Free Shipping" />
           )}
@@ -48,5 +63,17 @@ const ProductListItem = ({ title, picture, price, free_shipping, onClick }) => (
     </div>
   </div>
 );
+
+ProductListItem.propTypes = {
+  title: PropTypes.string.isRequired,
+  picture: PropTypes.string.isRequired,
+  price: PropTypes.shape({
+    currency: PropTypes.string.isRequired,
+    amount: PropTypes.number.isRequired,
+    decimals: PropTypes.number.isRequired,
+  }),
+  free_shipping: PropTypes.bool.isRequired,
+  onClick: PropTypes.func.isRequired,
+};
 
 export default ProductList;

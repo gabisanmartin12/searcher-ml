@@ -1,3 +1,4 @@
+import PropTypes from "prop-types";
 import React, { Fragment } from "react";
 import {
   NotificationContainer,
@@ -51,4 +52,18 @@ const ProductDetail = ({
     </Fragment>
   );
 };
+
+ProductDetail.propTypes = {
+  title: PropTypes.string.isRequired,
+  picture: PropTypes.string.isRequired,
+  condition: PropTypes.string.isRequired,
+  sold_quantity: PropTypes.number.isRequired,
+  price: PropTypes.shape({
+    currency: PropTypes.string.isRequired,
+    amount: PropTypes.number.isRequired,
+    decimals: PropTypes.number.isRequired,
+  }),
+  description: PropTypes.string,
+};
+
 export default ProductDetail;
