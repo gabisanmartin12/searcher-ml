@@ -12,7 +12,12 @@ const App = () => (
       <Header />
       <Switch>
         {routes.map((route, idx) => (
-          <Route key={idx} path={route.path} component={route.component} />
+          <Route
+            key={idx}
+            exact={route.exact}
+            path={route.path}
+            component={route.component}
+          />
         ))}
       </Switch>
     </Router>
